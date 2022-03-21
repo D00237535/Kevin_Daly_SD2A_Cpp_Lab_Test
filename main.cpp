@@ -2,9 +2,13 @@
 #include <cstdlib>
 #include <ctime>
 #include<sstream>
+#include <array>
 using namespace std;
 
 // student struct definition - given
+// Kevin Daly SD2A
+
+
 struct student {
     string name;
     string studentNumber;
@@ -17,35 +21,68 @@ struct student {
 // Do NOT modify any code that is given to you.
 // Test each task as you complete it to ensure that it is correct.
 
+int len(double pDouble[5]);
+
 void question1() {  // Topic: Accessing array using Pointer Notation
     cout << "Question 1 - arrays and pointers" << endl;
 
     double array[] = {1.1, 2.2, 3.3, 4.4, 5.5};
+    size_t n = sizeof(array)/sizeof(array[0]);
 
     //TODO  1a. Declare a pointer named 'ptr' and assign it
     //      to point at the array 'array'
 
+    double* ptr;
 
+    ptr = array;
+
+//    for (int i = 0; i < 5; i++)
+//    {
+//        cout << *ptr << ", ";
+//        ptr++;
+//    }
+//    cout << "" << endl;
     //TODO  1b. Write a for(){} loop that will output all elements in
     //      the array using POINTER NOTATION (NOT Array notation)
     //      by de-referencing the pointer.
+    int count = 0;
+
+    for (int i = 0; i < 5; i++)
+    {
+        cout << *ptr << ", ";
+        ptr++;
+
+        count++;
+    }
+    cout << "" << endl;
 
 
     //TODO  1c. Output the size in bytes of the pointer 'ptr'
 
+    cout << "The byte size of ptr is " << sizeof(ptr) << endl;
 
     //TODO 1d. Write code to calculate and output the number of elements in the
     //         array 'array' (i.e. Output the number of elements
     //         in the array 'array' without hard-coding the size)
 
+    cout << "The number of elements in the array is " << count << endl;
+
 
     //TODO 1e. Set the pointer 'ptr' to point at the LAST array element
     //     and output the last element using the pointer.
+    double *LE = (double * )(&array + 1) -1 ;
+
+    cout<<"The last element is of the array is "<< *LE<<endl;
 
 
     //TODO 1f. Using a for(){} loop, iterate in reverse (right-to-left)
     //         through the elements, outputting each element using
     //         the pointer 'ptr' and pointer notation. (NOT array notation)
+
+    for (int i = n - 1; i >= 0; i--) {
+        cout << array[i] << ", ";
+    }
+    cout << "" << endl;
 
 
     //TODO g. Given a C-style string (i.e. array of char) that stores one word,
@@ -59,6 +96,10 @@ void question1() {  // Topic: Accessing array using Pointer Notation
     char word[] = "Mississippi";        // given
 
 
+}
+
+int len(double pDouble[5]) {
+    return 0;
 }
 
 //////////////////////////  Question 2   ////////////////////////////
